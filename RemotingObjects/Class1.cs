@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace RemotingObjects
 {
-    public class Class1
+    public interface IPerson
     {
+        String getName(String name);
+
+    }
+
+    public class Person : MarshalByRefObject, IPerson
+    {
+        public Person()
+        {
+            Console.WriteLine("[Person]:Remoting Object 'Person' is activated.");
+        }
+
+        public String getName(String name)
+        {
+            return name;
+        }
     }
 }
